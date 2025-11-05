@@ -1,0 +1,20 @@
+<h1>Productos</h1>
+<a href="/products/new">Nuevo</a>
+<table>
+  <thead><tr><th>Imagen</th><th>Nombre</th><th>Precio</th><th>Acciones</th></tr></thead>
+  <tbody>
+  {{#each productos}}
+    <tr>
+      <td>{{#if this.imagen}}<img src="{{this.imagen}}" width="60"/>{{/if}}</td>
+      <td>{{this.nombre}}</td>
+      <td>${{this.precio}}</td>
+      <td>
+        <a href="/products/{{this._id}}/edit">Editar</a>
+        <form action="/products/{{this._id}}/delete" method="post" style="display:inline">
+          <button>Eliminar</button>
+        </form>
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>

@@ -1,0 +1,7 @@
+<h1>Iniciar sesión</h1>
+{{#if errors}}<ul>{{#each errors}}<li>{{this.msg}}</li>{{/each}}</ul>{{/if}}
+<form action="/auth/login" method="post">
+  <label>Usuario <input name="username" required></label>
+  <label>Contraseña <input name="password" type="password" required></label>
+  <button>Entrar</button>
+</form>
