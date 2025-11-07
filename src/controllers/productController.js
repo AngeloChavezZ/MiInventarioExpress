@@ -2,7 +2,7 @@ const Product = require('../models/Product');
 const { validationResult } = require('express-validator');
 
 exports.list = async (req, res) => {
-  const productos = await Product.find().sort({ createdAt: -1 });
+  const productos = await Product.find().sort({ createdAt: -1 }). lean();
   res.render('products/list', { title: 'Productos', productos });
 };
 

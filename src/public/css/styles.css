@@ -1,5 +1,60 @@
-body { font-family: system-ui, sans-serif; margin: 0; }
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  background-color: #0f4c5c; /* Verde azulado */
+  color: #ffffff; /* Texto blanco */
+}
 .container { padding: 1rem; }
-nav.nav { display:flex; gap:1rem; background:#f2f2f2; padding: .75rem 1rem; }
+nav.nav {
+  display: flex;
+  gap: 1rem;
+  background: #136f63; /* tono más claro que el fondo */
+  padding: .75rem 1rem;
+}
 table { width:100%; border-collapse: collapse; margin-top: .5rem; }
 td, th { border: 1px solid #ddd; padding: .5rem; }
+/* Texto general más legible sobre fondo oscuro */
+h1, h2, h3, p, label, th, td {
+  color: #eaf6f6;           /* texto claro */
+}
+
+/* Enlaces visibles (incluye ya visitados) */
+a, a:visited {
+  color: #bffcff;           /* celeste claro */
+  text-decoration: none;
+  font-weight: 600;
+}
+a:hover, a:focus {
+  color: #ffffff;           /* blanco al pasar el mouse */
+  text-decoration: underline;
+}
+
+/* Navbar: que los links se vean blancos dentro del nav */
+nav.nav a, nav.nav a:visited {
+  color: #ffffff;
+}
+
+/* Cabecera de tabla más contrastada */
+th {
+  background: rgba(0,0,0,.15);
+  color: #ffffff;
+}
+
+/* Bordes de tabla un poco más claros para que se distingan */
+table, th, td {
+  border-color: rgba(255,255,255,.35);
+}
+
+/* Botones básicos (como “Salir”) con mejor contraste */
+button, .btn {
+  background: #17998f;
+  color: #ffffff;
+  border: none;
+  padding: .45rem .8rem;
+  border-radius: .4rem;
+  cursor: pointer;
+}
+button:hover, .btn:hover {
+  background: #13b3a6;
+}
+
