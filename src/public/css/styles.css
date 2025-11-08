@@ -57,4 +57,10 @@ button, .btn {
 button:hover, .btn:hover {
   background: #13b3a6;
 }
+/* Estilo del encabezado principal */
+h1 {
+  color: #00bfa6; /* Verde azulado moderno */
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
 
