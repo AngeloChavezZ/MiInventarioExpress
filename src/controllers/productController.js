@@ -1,5 +1,6 @@
 const Product = require('../models/Product');
 const { validationResult } = require('express-validator');
+const logger = require('../config/logger');
 
 exports.list = async (req, res) => {
   const productos = await Product.find().sort({ createdAt: -1 }). lean();
@@ -18,7 +19,8 @@ exports.create = async (req, res) => {
     });
   }
   const imagen = req.file ? `/uploads/${req.file.filename}` : undefined;
-  await Product.create({ ...req.body, imagen });
+  const nuevo = await Product.create({ ...req.body, imagen});
+  logger.info(`Producto CREADO: "${nuevo.nombre}" (id: ${nuevo._id}) por usuario ${req.session.userId}`);
   res.redirect('/products');
 };
 
@@ -43,6 +45,7 @@ exports.update = async (req, res) => {
 };
 
 exports.remove = async (req, res) => {
-  await Product.findByIdAndDelete(req.params.id);
+  const eliminado = await Product.findByIdAndDelete(req.params.id);
+  logger.info(`Producto ELIMINADO: "${eliminado?.nombre}" (id: ${req.params.id}) por usuario ${req.session.userId}`);
   res.redirect('/products');
 };
